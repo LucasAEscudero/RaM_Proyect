@@ -3,11 +3,13 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 export default function Detail(){
-    const { id } = useParams();
+    const { id } = useParams(); //obtain character id
     const [character, setCharacter] = useState([]);
 
+    //import all info character
     useEffect(() => {
-        axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
+        axios(`https://rickandmortyapi.com/api/character/${id}`)
+        .then(({ data }) => {
             if (data.name) {
                 setCharacter(data);
             } else {

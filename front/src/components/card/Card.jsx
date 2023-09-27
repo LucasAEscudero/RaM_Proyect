@@ -1,13 +1,17 @@
+//react
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+
+//redux
 import { useSelector, useDispatch } from 'react-redux';
 import { addFav, removeFav } from '../../redux/actions/actions'; //actions
 
 export default function Card({id, name, status, especies, gender, origin, image, onClose}) {
-   const dispatch = useDispatch(); //obtener el dispatch
-   const myFavorites = useSelector((state) => state.myFavorites); //acceder al estado global
-   const [isFav, setIsFav] = useState(false);
+   const dispatch = useDispatch(); //obtain dispatch
+   const myFavorites = useSelector((state) => state.myFavorites); //global state access
+   const [isFav, setIsFav] = useState(false); //character fav state
 
+   //favorite changes
    const handleFavorite = () => {
       if(isFav){
          setIsFav(false);
@@ -27,6 +31,7 @@ export default function Card({id, name, status, especies, gender, origin, image,
       }
    }
 
+   //favorites changes effect
    useEffect(() => {
       if(myFavorites){
          myFavorites.forEach((fav) => {
@@ -47,7 +52,9 @@ export default function Card({id, name, status, especies, gender, origin, image,
                   <button onClick={handleFavorite}>🤍</button>
                )
             }
-            <button onClick={() => onClose(id)} style={{borderRadius:"50%"}}>X</button>
+
+            { onClose && <button onClick={() => onClose(id)} style={{borderRadius:"50%"}}>X</button> }
+
             <Link to={`/detail/${id}`}><h2>{name}</h2></Link>
             <h2>{status}</h2>
             <h2>{especies}</h2>

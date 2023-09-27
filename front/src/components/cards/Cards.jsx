@@ -1,10 +1,14 @@
+//components
 import Card from '../card/Card';
+
+//styles
+import './cards.module.css';
 
 export default function Cards({characters, onClose}) {
     return(
-      <div>
+      <div id='wallpaper'>
          {
-            characters.map(({id, name, status, especies, gender, origin, image}) => {
+            characters?.map(({id, name, status, especies, gender, origin, image}) => {
                return <Card
                key={id}
                id={id}

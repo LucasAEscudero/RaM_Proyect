@@ -1,25 +1,37 @@
-import Cards from './components/cards/Cards.jsx';
-import './App.css'
-import Nav from "./components/nav/Nav.jsx";
+//react
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { removeFav } from './redux/actions/actions.js';
+
+//axios
+import axios from "axios";
+
+//components
+import Cards from './components/cards/Cards.jsx';
+import Nav from "./components/nav/Nav.jsx";
 import About from './components/about/About.jsx';
 import Detail from './components/detail/Detail.jsx';
 import Error from './components/error/Error.jsx';
 import Form from './components/form/Form.jsx';
 import Favorites from './components/favorites/Favorites.jsx';
-import { useDispatch } from 'react-redux';
-import { removeFav } from './redux/actions/actions.js';
+import Catalogue from "./components/catalogue/Catalogue.jsx";
+
+//styles
+import './App.css';
 
 export default function App() {
+  //hooks
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
-  const email = 'mygmail@gmail.com';
-  const password = 'password123';
+  //redux
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  //verification
+  const email = 'gmail@gmail.com'; //gmail
+  const password = 'pass123'; //password
+  
+  //search function
   function onSearch(id) {
     axios(`https://rickandmortyapi.com/api/character/${id}`)
     .then(({ data }) => {
@@ -36,15 +48,17 @@ export default function App() {
     })
   }
 
+  //onClose function
   const onClose = (id) => {
     const charFiltered = characters.filter((character) => {
       if(character.id !== id) return character;
     });
     setCharacters(charFiltered);
 
-    dispatch(removeFav(id)); //eliminar charFav desde home
+    dispatch(removeFav(id)); //delete charFav since home
   }
 
+  //login funtion
   const login = (userData) => {
     if(userData.email === email && userData.password === password){
       setAccess(true);
@@ -54,15 +68,17 @@ export default function App() {
     }
   }
 
+  //negate access function (form)
   useEffect(() => {
     !access && navigate('/');
   }, [access]);
 
-  //extra excercise: log out
+  //log out function (form)
   const logOut = () => {
     navigate('/');
   }
 
+  //conditional: true => login form (first time) / false => access functional web 
   if(useLocation().pathname == '/'){
     return(
       <Routes>
@@ -70,7 +86,7 @@ export default function App() {
       </Routes>
     );
   }
-  else
+  else //normal rendering (after access)
   {
     return(
       <>
@@ -80,6 +96,7 @@ export default function App() {
           <Route path='/home' element={<Cards characters={characters} onClose={onClose} />}/>
           <Route path='/detail/:id' element={<Detail />}/>
           <Route path='/favorites' element={<Favorites />}/>
+          <Route path='/catalogue' element={<Catalogue />}/>
           <Route path='*' element={<Error />}/>
         </Routes>  
       </>
