@@ -18,6 +18,8 @@ export default function Catalogue() {
 
     useEffect(() => {
         dispatch(getAll(page));
+
+        return 
     }, [page]);
 
     const handleChange = (event) => {

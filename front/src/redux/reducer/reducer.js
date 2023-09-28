@@ -24,6 +24,9 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 myFavorites: [...state.myFavorites].filter((character) => {
                     return character.id !== action.payload;
+                }),
+                allFavorites: [...state.allFavorites].filter((character) => {
+                    return character.id !== action.payload;
                 })
             };
 
