@@ -3,7 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { filterCards, orderCards, reset } from "../../redux/actions/actions";
 
 //components
-import Card from "../card/Card";
+import Cards from "../cards/Cards";
+
+//styles
+import styles from './favorites.module.css';
 
 export default function Favorites() {
    const dispatch = useDispatch();
@@ -23,34 +26,29 @@ export default function Favorites() {
 
    return(
         <div>
-            <select name="order" onChange={handleOrder}>
-               <option value="A">Ascendente</option>
-               <option value="D">Descendente</option>
-            </select>
-
-            <select name="filter" onChange={handleFilter}>
-               <option value="Male">Male</option>
-               <option value="Female">Female</option>
-               <option value="Genderless">Genderless</option>
-               <option value="unknown">unknown</option>
-            </select>
-
-            <button name='reset' onClick={handleReset}>Reset</button>
-
-            {
-            myFavorites.map(({id, name, status, especies, gender, origin, image}) => {
-               return <Card
-               key={id}
-               id={id}
-               name={name}
-               status={status}
-               especies={especies}
-               gender={gender}
-               origin={origin.name}
-               image={image}
-               />
-            })
-         } 
+         <div className={styles.options}>
+            <div className={styles.order}>
+               <select name="order" onChange={handleOrder}>
+                  <option value="A">Ascendente</option>
+                  <option value="D">Descendente</option>
+               </select>
+            </div>
+            <div className={styles.filter}>
+               <select name="filter" onChange={handleFilter}>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Genderless">Genderless</option>
+                  <option value="unknown">unknown</option>
+               </select>
+            </div>
+            <div className={styles.reset}>
+               <button name='reset' onClick={handleReset}>Reset</button>
+            </div>
+            </div>
+            
+            <div>
+               <Cards characters={myFavorites} />
+            </div>
         </div>
     );
 }

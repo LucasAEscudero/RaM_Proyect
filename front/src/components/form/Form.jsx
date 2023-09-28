@@ -5,10 +5,11 @@ import { useState } from 'react';
 import validate from './validation';
 
 //resources
-import nombre from './resources/name.png';
+import name from './resources/name.png';
+import wallpaper from './resources/login.jpg';
 
 //styles
-import './form.module.css';
+import form from './form.module.css';
 
 export default function Form({ props }) {
     //inputs state
@@ -16,9 +17,9 @@ export default function Form({ props }) {
         email: '',
         password: ''
     });
-
     //errors state
     const [errors, setErrors] = useState({});
+    //dispatch access
 
     //inputs function
     const handleChange = (event) => {
@@ -37,9 +38,10 @@ export default function Form({ props }) {
     }
 
     return(
-        <div className='login'>
-            <form id='formLogin'>
-                <img id='name' src={nombre} alt="Rick and Morty" />
+        <div className={form.form}>
+            <img className={form.wallpaper} src={wallpaper} alt="wallpaper" />
+            <form className={form.login}>
+                <img className={form.name} src={name} alt="Rick and Morty" />
                 <label htmlFor="email">Email: </label>
                 <input 
                     type="email" 

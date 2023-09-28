@@ -1,0 +1,47 @@
+.card{
+    border: 1px solid #000;
+    margin: 5px;
+    position: relative;
+    background-color: #3d3d3d;
+}
+
+.card > button{
+    position: absolute;
+    z-index: 10;
+    margin: 5px;
+    width: 10px;
+    padding: 0;
+    transition: none;
+}
+
+.card > .close{
+    right: 0;
+    width: 25px;
+    border-radius: 50%;
+    background-color:  #e41010af;
+}
+
+.card > img{
+    position: relative;
+    width: 200px;
+    border-bottom: 1px solid #000;
+}
+
+.fav{
+    background-color: transparent;
+}
+.fav:hover{
+    border: none;
+}
+
+.name{
+    position: absolute;
+    z-index: 10;
+    background-color: rgb(170, 170, 0);
+    font-size: 0.75em;
+    top: 150px;
+}
+
+h2{
+    font-size: 1em;
+}

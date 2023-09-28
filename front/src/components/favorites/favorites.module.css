@@ -1,0 +1,20 @@
+.options{
+    display: flex;
+    justify-content: center;
+}
+
+.order,
+.filter,
+.reset{
+    margin: 5px;
+}
+
+.reset > button {
+    background-color: #000;
+    border-color: 5px solid #086300;
+    padding: 3px;
+}
+
+.reset > button:hover{
+    background-color: #494646;
+}

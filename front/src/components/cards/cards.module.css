@@ -1,7 +1,5 @@
-/*body{
-    background-image: url('../../resources/wallpaper.jpg');
-    background-size: contain;
-    background-position: right;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}*/
+.container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}

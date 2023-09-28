@@ -2,21 +2,19 @@
 import Card from '../card/Card';
 
 //styles
-import './cards.module.css';
+import styles from './cards.module.css';
 
 export default function Cards({characters, onClose}) {
     return(
-      <div id='wallpaper'>
+      <div className={styles.container}>
          {
-            characters?.map(({id, name, status, especies, gender, origin, image}) => {
+            characters?.map(({id, name, status, gender, image}) => {
                return <Card
                key={id}
                id={id}
                name={name}
                status={status}
-               especies={especies}
                gender={gender}
-               origin={origin.name}
                image={image}
                onClose={onClose}
                />

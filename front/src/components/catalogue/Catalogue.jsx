@@ -1,6 +1,3 @@
-//axios
-import axios from "axios";
-
 //react
 import { useState, useEffect } from "react";
 
@@ -9,7 +6,10 @@ import { getAll } from "../../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 //components
-import Card from "../card/Card";
+import Cards from "../cards/Cards";
+
+//styles
+import styles from './catalogue.module.css';
 
 export default function Catalogue() {
     const dispatch = useDispatch();
@@ -28,22 +28,11 @@ export default function Catalogue() {
     }
 
     return (
-        <div>
+        <div className={styles.catalogue}>
             <button name='anterior' onClick={handleChange}>Anterior Pagina</button>
             <button name='siguiente' onClick={handleChange}>Siguiente Pagina</button>
         {
-            characters?.map(({id, name, status, especies, gender, origin, image}) => {
-               return <Card
-               key={id}
-               id={id}
-               name={name}
-               status={status}
-               especies={especies}
-               gender={gender}
-               origin={origin.name}
-               image={image}
-               />
-            })
+            <Cards characters={characters}/>
         }
         </div>
     );

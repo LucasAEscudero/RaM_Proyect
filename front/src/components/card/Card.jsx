@@ -6,7 +6,10 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addFav, removeFav } from '../../redux/actions/actions'; //actions
 
-export default function Card({id, name, status, especies, gender, origin, image, onClose}) {
+//styles
+import styles from './card.module.css';
+
+export default function Card({id, name, status, gender, image, onClose}) {
    const dispatch = useDispatch(); //obtain dispatch
    const myFavorites = useSelector((state) => state.myFavorites); //global state access
    const [isFav, setIsFav] = useState(false); //character fav state
@@ -19,12 +22,10 @@ export default function Card({id, name, status, especies, gender, origin, image,
       } else {
          setIsFav(true);
          dispatch(addFav({ 
-            id: id, 
+            id: id,
             name: name, 
             status: status, 
-            especies: especies, 
-            gender: gender, 
-            origin: origin, 
+            gender: gender,
             image: image, 
             onClose: onClose 
          }));
@@ -44,23 +45,23 @@ export default function Card({id, name, status, especies, gender, origin, image,
 
    return (
       <>
-         <div className="card" style={{display: "inline-block", minWidth:"500px"}}>
+         <div className={styles.card}>
             {
                isFav ? (
-                  <button onClick={handleFavorite}>❤️</button>
+                  <button className={styles.fav} onClick={handleFavorite}>❤️</button>
                ) : (
-                  <button onClick={handleFavorite}>🤍</button>
+                  <button className={styles.fav} onClick={handleFavorite}>🤍</button>
                )
             }
 
-            { onClose && <button onClick={() => onClose(id)} style={{borderRadius:"50%"}}>X</button> }
+            { onClose && <button className={styles.close} onClick={() => onClose(id)}>
+                  X
+               </button> }
 
-            <Link to={`/detail/${id}`}><h2>{name}</h2></Link>
-            <h2>{status}</h2>
-            <h2>{especies}</h2>
-            <h2>{gender}</h2>
-            <h2>{origin}</h2>
             <img src={image} alt={name} />
+            <Link to={`/detail/${id}`}><h2 className={styles.name}>{name}</h2></Link>
+            <h2>{status}</h2>
+            <h2>{gender}</h2>
          </div>
       </>
    );

@@ -1,43 +1,41 @@
 //styles
-import './about.module.css';
+import styles from './about.module.css';
 
 //resources
 import profileImage from './resources/profileImage.jpg';
 import githubIcon from './resources/gitHubIcon.png';
 import linkedinIcon from './resources/linkedinIcon.png';
-import instagramIcon from './resources/instagramIcon.png';
 import discordIcon from './resources/discordIcon.png';
 
 export default function About(){
     return(
-        <div>
-            <img src="../resources/icons/profileImage.jpg" alt="Profile image" />
+        <div className={styles.profile}>
+            <div>
+                <img src={profileImage} alt="Profile image" />
+            </div>
+            <div className={styles.allInfo}>
+                <h2>Lucas Agustin Escudero</h2>
+                <p>Contact information: </p>
 
-            <h2>Lucas Agustin Escudero</h2>
-
-            <p>Contact info: </p>
-            <ul id="contact">
-                <li>
-                    <a href="https://github.com/LucasAEscudero">
-                        <img src="../resources/icons/gitHubIcon.png" alt="GitHub profile" />
-                        <p>Username: LucasAEscudero</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.linkedin.com/in/lucas-escudero-54195322b/">
-                        <img src="../resources/icons/linkedinIcon.png" alt="Linkedin profile" />
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.instagram.com/lucasescud/?next=%2F">
-                        <img src="../resources/icons/instagramIcon.png" alt="Instagram profile" />
-                    </a>
-                </li>
-                <li>
-                    <img src="../resources/icons/discordIcon.png" alt="Discord profile" />
-                    <p>Username: Slyder7276</p>
-                </li>
-            </ul>
+                <ul className={styles.contact}>
+                    <li className={styles.red}>
+                        <a href="https://github.com/LucasAEscudero">
+                            <img className={styles.icon} src={githubIcon} alt="GitHub profile" />
+                            <p>LucasAEscudero</p>
+                        </a>
+                    </li>
+                    <li className={styles.red}>
+                        <a href="https://www.linkedin.com/in/lucas-escudero-54195322b/">
+                            <img className={styles.icon} src={linkedinIcon} alt="Linkedin profile" />
+                            <p>Lucas Escudero</p>
+                        </a>
+                    </li>
+                    <li className={styles.red}>
+                        <img className={styles.icon} src={discordIcon} alt="Discord profile" />
+                        <p>Slyder7276</p>
+                    </li>
+                </ul>
+            </div>
         </div>
     );
 }

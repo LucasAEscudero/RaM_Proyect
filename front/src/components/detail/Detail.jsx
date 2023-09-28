@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import styles from './detail.module.css';
 
 export default function Detail(){
     const { id } = useParams(); //obtain character id
@@ -20,14 +21,16 @@ export default function Detail(){
     }, [id]);
 
     return(
-        <div>
-            <img src={character?.image} alt={character.name} />
-            <h2>{character?.name}</h2>
-            <h2>{character?.id}</h2>
-            <h2>{character?.status}</h2>
-            <h2>{character?.species}</h2>
-            <h2>{character?.gender}</h2>
-            <h2>{character?.origin?.name}</h2>
+        <div className={styles.cards}>
+            <img src={character?.image} alt={character?.name} />
+            <div className={styles.info}>
+                <h2>Name: {character?.name}</h2>
+                <h2>Id: {character?.id}</h2>
+                <h2>Status: {character?.status}</h2>
+                <h2>Specie: {character?.species}</h2>
+                <h2>Gender: {character?.gender}</h2>
+                <h2>Origin: <a href={character?.origin?.url}>{character?.origin?.name}</a></h2>
+            </div>
         </div>
     );
 }

@@ -24,8 +24,8 @@ export default function App() {
   //hooks
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
-  //redux
   const navigate = useNavigate();
+  //redux
   const dispatch = useDispatch();
   //verification
   const email = 'gmail@gmail.com'; //gmail
@@ -63,8 +63,6 @@ export default function App() {
     if(userData.email === email && userData.password === password){
       setAccess(true);
       navigate('/home');
-    } else {
-      alert('El email o la contrasena son invalidos');
     }
   }
 
@@ -75,11 +73,13 @@ export default function App() {
 
   //log out function (form)
   const logOut = () => {
+    setAccess(false);
     navigate('/');
   }
 
+  console.log(access)
   //conditional: true => login form (first time) / false => access functional web 
-  if(useLocation().pathname == '/'){
+  if(!access){
     return(
       <Routes>
         <Route path='/' element={<Form props={login}/>}/>
