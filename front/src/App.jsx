@@ -77,7 +77,6 @@ export default function App() {
     navigate('/');
   }
 
-  console.log(access)
   //conditional: true => login form (first time) / false => access functional web 
   if(!access){
     return(
