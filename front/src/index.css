@@ -25,6 +25,12 @@ a:hover {
 
 body {
   margin: 0;
+  height: 100vh;
+}
+
+html{
+  background-image: url('./resources/wallpaper.jpg');
+  background-repeat: repeat;
 }
 
 h1 {

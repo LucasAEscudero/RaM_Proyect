@@ -24,8 +24,6 @@ export default function Favorites() {
       dispatch(reset());
    }
 
-   console.log(myFavorites)
-
    return(
         <div>
          <div className={styles.options}>

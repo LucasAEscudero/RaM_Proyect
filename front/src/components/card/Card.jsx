@@ -60,8 +60,10 @@ export default function Card({id, name, status, gender, image, onClose}) {
 
             <img src={image} alt={name} />
             <Link to={`/detail/${id}`}><h2 className={styles.name}>{name}</h2></Link>
-            <h2>{status}</h2>
-            <h2>{gender}</h2>
+            <div className={styles.dates}>
+               <h2>{status}</h2>
+               <h2>{gender}</h2>
+            </div>  
          </div>
       </>
    );

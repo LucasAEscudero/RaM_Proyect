@@ -2,7 +2,7 @@
 import styles from './about.module.css';
 
 //resources
-import profileImage from './resources/profileImage.jpg';
+import profileImage from './resources/profileImage.jpeg';
 import githubIcon from './resources/gitHubIcon.png';
 import linkedinIcon from './resources/linkedinIcon.png';
 import discordIcon from './resources/discordIcon.png';

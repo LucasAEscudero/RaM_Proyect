@@ -9,7 +9,7 @@ export default function Detail(){
 
     //import all info character
     useEffect(() => {
-        axios(`https://rickandmortyapi.com/api/character/${id}`)
+        axios(`http://127.0.0.1:3001/rickandmorty/character/${id}`)
         .then(({ data }) => {
             if (data.name) {
                 setCharacter(data);

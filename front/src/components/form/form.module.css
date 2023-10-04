@@ -26,3 +26,8 @@
 .name{
     width: 100%;
 }
+
+.form{
+    background-color: #252525;
+    height: 100vh;
+}
