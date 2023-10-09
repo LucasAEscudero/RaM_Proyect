@@ -1,9 +1,11 @@
 .catalogue > button {
-    background-color: #000;
+    background-color: #27a700;
     border-color: 5px solid #086300;
-    margin-top: 3px;
+    margin: 5px;
+    transition: 0.25s;
 }
 
 .catalogue > button:hover{
-    background-color: #494646;
+    background-color: #086300;
+    box-shadow: 0 0 10px #27a700;
 }

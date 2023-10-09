@@ -4,19 +4,37 @@ import {ADD_FAV, REMOVE_FAV, FILTER, ORDER, GETALL, RESET} from './action-types'
 
 //action creator (add)
 export const addFav = (character) => {
-    return {
-        type: ADD_FAV,
-        payload: character
-    }
-}
+    return async (dispatch) => {
+        try{
+            const { data } = await axios.post(`http://localhost:3001/rickandmorty/favorites`, character);
+
+            return dispatch({
+                type: REMOVE_FAV,
+                payload: data
+            });
+        }
+        catch(error){
+            alert(error.message);
+        }
+    };
+};
 
 //action creator (remove)
 export const removeFav = (id) => {
-    return {
-        type: REMOVE_FAV,
-        payload: id
-    }
-}
+    return async (dispatch) => {
+        try{
+            const { data } = await axios.delete(`http://localhost:3001/rickandmorty/favorites/?id=${id}`);
+
+            return dispatch({
+                type: REMOVE_FAV,
+                payload: data
+            });
+        }
+        catch(error){
+            alert(error.message);
+        }
+    };
+};
 
 //action creator (filter)
 export const filterCards = (gender) => {
@@ -35,11 +53,10 @@ export const orderCards = (order) => {
 }
 
 export const getAll = (pag) => {
-    return (dispatch) => {
-        axios(`https://rickandmortyapi.com/api/character?page=${pag}`)
-        .then(({data}) => {
-            return dispatch({ type: GETALL, payload: data.results});
-        })  
+    return async (dispatch) => {
+        const { data } = await axios(`http://localhost:3001/rickandmorty/catalogue/?page=${pag}`);
+        
+        return dispatch({ type: GETALL, payload: data});
     }
 }
 

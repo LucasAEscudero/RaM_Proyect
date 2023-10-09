@@ -14,20 +14,16 @@ export default function reducer(state = initialState, action) {
         case ADD_FAV:
             return {
                 ...state,
-                myFavorites: [...state.allFavorites, action.payload],
-                allFavorites: [...state.allFavorites, action.payload]
+                myFavorites: action.payload,
+                allFavorites: action.payload
             };
         
         //remover case (fav)
         case REMOVE_FAV:
             return {
                 ...state,
-                myFavorites: [...state.myFavorites].filter((character) => {
-                    return character.id !== action.payload;
-                }),
-                allFavorites: [...state.allFavorites].filter((character) => {
-                    return character.id !== action.payload;
-                })
+                myFavorites: action.payload,
+                allFavorites: action.payload
             };
 
         //filter case

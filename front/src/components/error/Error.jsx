@@ -1,10 +1,10 @@
-import advertence from './resources/advertence.png';
+import error from './resources/error.png';
+import styles from './error.module.css';
 
 export default function Error() {
     return(
-        <div>
-            <img src={advertence} alt="Advertence" />
-            <h1>Ups... Error 404</h1>
+        <div className={styles.container}>
+            <img src={error} alt="Advertence" />
         </div>
     );
 }

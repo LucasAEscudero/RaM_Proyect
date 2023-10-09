@@ -1,5 +1,5 @@
 //react
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 //components
 import validate from './validation';
@@ -27,9 +27,11 @@ export default function Form({ props }) {
             ...input,
             [event.target.name]: event.target.value
         });
-
-        setErrors(validate(input));
     }
+
+    useEffect(() => {
+        if(input.email.length !== 0 && input.password.length !== 0) setErrors(validate(input));
+    }, [input]);
 
     //button function
     const handleSubmit = (event) => {
@@ -48,6 +50,7 @@ export default function Form({ props }) {
                     name="email" 
                     value={input.email} 
                     onChange={handleChange}
+                    placeholder='Your email...'
                 />
                 {errors.email !== '' && <p style={{ color: 'red' }}>{errors.email}</p>}
                 <hr style={{ borderStyle: "none"}} />
@@ -58,6 +61,7 @@ export default function Form({ props }) {
                     name="password" 
                     value={input.password} 
                     onChange={handleChange}
+                    placeholder='Your password...'
                 />
                 {errors.password !== '' && <p style={{ color: 'red' }}>{errors.password}</p>}
                 <hr style={{ borderStyle: "none"}} />

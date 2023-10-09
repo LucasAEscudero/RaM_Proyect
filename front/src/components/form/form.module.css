@@ -21,6 +21,7 @@
     border-radius: 5%;
     background-color: #27a700; 
     float: left;
+    box-shadow: 0 0 20px #27a700;
 }
 
 .name{
@@ -30,4 +31,27 @@
 .form{
     background-color: #252525;
     height: 100vh;
+}
+
+.login > input{
+    background-color: #1e7903;
+    border: none;
+    padding: 4px;
+}
+
+.login > input:focus{
+    outline: none;
+    border: 1px solid #252525;
+    box-shadow: 0 0 15px #086300;
+}
+
+.login > button {
+    background-color: #086300;
+    border-color: 1px solid #252525;
+    padding: 10px;
+}
+
+.login > button:hover{
+    background-color: #252525;
+    box-shadow: 0 0 15px #086300;
 }

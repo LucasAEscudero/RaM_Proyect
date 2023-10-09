@@ -1,7 +1,9 @@
 .cards{
+    background-color: #27a700;
     display: flex;
-    border: 3px solid #000;
-    margin: 10px;
+    border: 3px solid #1e7a02;
+    margin: 3em 8em 3em 8em;
+    box-shadow: 0 0 25px #27a700;
 }
 
 .cards > img{
@@ -11,10 +13,9 @@
 
 .info{
     margin: 5px;
-    padding-left: 10px;
-    border-left: 3px solid #000;
+    padding-left: 50px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    font-size: 1em;
+    font-size: 20px;
 }

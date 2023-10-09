@@ -2,8 +2,10 @@
     height: 300px;
     border-radius: 50%;
     float: left;
-    margin-top: 10px;
-    margin-left: 10px;
+    margin-top: 2em;
+    margin-left: 20px;
+    margin-bottom: 2em;
+    border: 2px solid #086300;
 }
 
 .allInfo{
@@ -52,4 +54,27 @@ p{
 
 .profile > div > h2{
     font-size: 2em;
+}
+
+/* .profile{
+    background-color: #27a700;
+    display: inline-block;
+    width: auto;
+    height: auto;
+    padding-right: 35em;
+    margin-top: 4em;
+    
+    
+} */
+
+.allInfo > p{
+    font-size: 1.1em;
+}
+
+.profile{
+    background-color: #27a700;
+    display: flex;
+    margin: 4em 10em 0 10em;
+    border: 5px solid #086300;
+    box-shadow: 0 0 15px #27a700;
 }
