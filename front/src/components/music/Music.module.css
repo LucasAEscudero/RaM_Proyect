@@ -1,4 +1,13 @@
 .container{
+    
     display: flex;
-    margin-left: 5em;
+    justify-content: center;
+}
+
+.container > div{
+    margin-top: 1.5em;
+    padding: 3em 3em 3em 3em;
+    background-color: #27a700;
+    border: 5px solid #086300;
+    box-shadow: 0 0 15px #27a700;
 }

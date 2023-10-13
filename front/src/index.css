@@ -12,6 +12,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  background-image: url('./resources/RaM.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 a {
@@ -25,12 +30,6 @@ a:hover {
 
 body {
   margin: 0;
-  height: 100vh;
-}
-
-html{
-  background-image: url('./resources/wallpaper.jpg');
-  background-repeat: repeat;
 }
 
 h1 {
@@ -71,3 +70,16 @@ button:focus-visible {
 }
 
 /*my styles*/
+select{
+  background-color: #27a700;
+  border-radius: 3em;
+  outline: none;
+  border: 0;
+  height: 2em;
+  text-align: center;
+}
+
+select:hover{
+  cursor: pointer;
+  box-shadow: #1e7903;
+}

@@ -1,7 +1,9 @@
 const axios = require('axios');
 
-const getAllChar = (res, pag) => {
-    axios(`https://rickandmortyapi.com/api/character?page=${pag}`)
+const getAllChar = (req, res) => {
+    const { page } = req.query;
+
+    axios(`https://rickandmortyapi.com/api/character?page=${page}`)
     .then(({ data }) => {
         if(data.results){
             return res.status(200).json(data.results);

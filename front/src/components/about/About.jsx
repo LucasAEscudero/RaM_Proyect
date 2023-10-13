@@ -15,7 +15,7 @@ export default function About(){
             </div>
             <div className={styles.allInfo}>
                 <h2>Lucas Agustin Escudero</h2>
-                <p>Contact information: </p>
+                <p>Contact me: </p>
 
                 <ul className={styles.contact}>
                     <li className={styles.red}>

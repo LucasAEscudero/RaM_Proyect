@@ -1,6 +1,7 @@
 .options{
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 .order,
@@ -24,4 +25,11 @@
 .reset > button:hover{
     background-color: #086300;
     box-shadow: 0 0 10px #27a700;
+}
+
+.options > div > h2{
+    position: absolute;
+    right: 1.5em;
+    text-shadow: 0.5px 0.5px #000;
+    
 }

@@ -1,11 +1,26 @@
-.catalogue > button {
+.navigate > button {
     background-color: #27a700;
     border-color: 5px solid #086300;
     margin: 5px;
     transition: 0.25s;
 }
 
-.catalogue > button:hover{
+.navigate > button:hover{
     background-color: #086300;
     box-shadow: 0 0 10px #27a700;
+}
+
+.navigate > p{
+    background-color: #252525;
+    border-radius: 10px;
+    margin-left: 0;
+    padding: 6px 5px 6px 4px;
+    height: 1em;
+    line-height: 1em;
+    margin-top: 0.8em;
+}
+
+.navigate{
+    display: flex;
+    justify-content: center;
 }

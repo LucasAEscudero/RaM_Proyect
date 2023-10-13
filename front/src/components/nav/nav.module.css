@@ -9,7 +9,7 @@
     justify-content: space-between;
     background-color: #27a700;
     height: 3.5em;
-    border-bottom: #242424;
+    border-bottom: 2px solid #242424;
 }
 
 .links{
@@ -39,6 +39,7 @@
     padding-right: 25px;
     border: 1px #242424 solid;
     background-color: #1e7903;
+    box-shadow: 0 0 15px #1e7903;
 }
 
 /* .firstBorder{
@@ -65,4 +66,8 @@
     padding-right: 25px;
     border: 1px #242424 solid;
     background-color: #1e7903;
+}
+
+.search > button:hover{
+    box-shadow: 0 0 15px #27a700;
 }

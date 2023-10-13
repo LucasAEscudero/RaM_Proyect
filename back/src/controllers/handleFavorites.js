@@ -1,11 +1,13 @@
 let myFavorites = [];
 
-const postFav = (res, character) => {
-    myFavorites.push(character);
+const postFav = (req, res) => {
+    myFavorites.push(req.body);
     return res.status(200).json(myFavorites);
 }
 
-const deleteFav = (res, id) => {
+const deleteFav = (req, res) => {
+    const { id } = req.query;
+
     myFavorites = myFavorites.filter((character) => {
         return Number(character.id) !== Number(id);
     });
@@ -13,8 +15,15 @@ const deleteFav = (res, id) => {
     return res.status(200).json(myFavorites);
 }
 
+const logOutFav = (req, res) => {
+    myFavorites = [];
+
+    return res.status(200).send('logOut succesfully');
+}
+
 module.exports = {
     myFavorites,
     postFav,
-    deleteFav
+    deleteFav,
+    logOutFav
 }

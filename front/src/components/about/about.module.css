@@ -46,6 +46,7 @@ p{
     text-align: center;
     padding: 2px;
     margin-left: 10px;
+    text-shadow: 0.5px 0.5px #000;
 }
 
 .icon{
@@ -54,6 +55,7 @@ p{
 
 .profile > div > h2{
     font-size: 2em;
+    text-shadow: 0.5px 0.5px #000;
 }
 
 /* .profile{
@@ -77,4 +79,5 @@ p{
     margin: 4em 10em 0 10em;
     border: 5px solid #086300;
     box-shadow: 0 0 15px #27a700;
+    padding-left: 4em;
 }

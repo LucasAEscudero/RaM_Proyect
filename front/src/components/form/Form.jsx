@@ -52,7 +52,7 @@ export default function Form({ props }) {
                     onChange={handleChange}
                     placeholder='Your email...'
                 />
-                {errors.email !== '' && <p style={{ color: 'red' }}>{errors.email}</p>}
+                {errors.email !== '' && <p className={form.error}>{errors.email}</p>}
                 <hr style={{ borderStyle: "none"}} />
 
                 <label htmlFor="password">Password: </label>
@@ -63,7 +63,7 @@ export default function Form({ props }) {
                     onChange={handleChange}
                     placeholder='Your password...'
                 />
-                {errors.password !== '' && <p style={{ color: 'red' }}>{errors.password}</p>}
+                {errors.password !== '' && <p className={form.error}>{errors.password}</p>}
                 <hr style={{ borderStyle: "none"}} />
 
                 <button 

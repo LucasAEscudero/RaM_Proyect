@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { removeFav } from './redux/actions/actions.js';
+//import { removeFav} from './redux/actions/actions.js';
 
 //axios
 import axios from "axios";
@@ -23,18 +23,24 @@ import './App.css';
 
 export default function App() {
   //hooks
+  //characters-searchBar
   const [characters, setCharacters] = useState([]);
   const [search, setSearch] = useState("id");
+  const [pages, setPages] = useState(1);
 
+  //login-access
   const [access, setAccess] = useState(false);
   const navigate = useNavigate();
+
   //redux
-  const dispatch = useDispatch();
+  //const dispatch = useDispatch();
   
   //search function
   const onSearch = async (type) => {
+    //send param with case
     if(type.value === "") return null;
-
+    
+    //search by id case
     if(type.type === 'id'){
 
       if(search === "characters") setCharacters([]);
@@ -52,22 +58,33 @@ export default function App() {
         if(!repeated) setCharacters((oldChars) => [...oldChars, data]);
       }
       catch(error){
-        alert('Not found');
+        throw Error(error.message);
       }
 
-    } else {
+    } else { //search by other cases
+      //reset the catalogue of cards
       if(search === "id") setCharacters([]);
       setSearch("characters");
     
       try{
         const { data } = await axios(`http://localhost:3001/rickandmorty/characters/?type=${type.type}&&page=${type.page}&&value=${type.value}`);
+        const { pages, characters } = data;
 
-        if(data) setCharacters([...data]);
+        if(characters){
+          setCharacters([...characters]);
+          setPages(pages);
+        } 
+        
       }
       catch(error){
-        alert('Not found');
+        throw Error(error.message);
       }
     }
+  }
+
+  //delete all function
+  const handleDelete = () => {
+    setCharacters([]);
   }
 
   //onClose function
@@ -75,28 +92,37 @@ export default function App() {
     const charFiltered = characters.filter((character) => {
       if(character.id !== id) return character;
     });
+
     setCharacters(charFiltered);
 
-    dispatch(removeFav(id)); //delete charFav since home
+    //dispatch(removeFav(id)); //delete charFav since home
   }
 
   //login functions
   const login = async ({ email, password }) => {
-    try{
-      const access = axios(`http://localhost:3001/rickandmorty/login/?email=${email}&&password=${password}`);
+    try{ //obtain access
+      const { data } = await axios(`http://localhost:3001/rickandmorty/login/?email=${email}&&password=${password}`);
 
-      setAccess(access);
+      setAccess(data.access);
       navigate('/home');
     }
     catch(error){
-      alert(error.message);
+      throw Error(error.message);
     }
   }
 
+  //reset - access
   useEffect(() => {
-    !access && navigate('/login');
+    if(!access){
+      axios.delete('http://localhost:3001/rickandmorty/LogOutFav');
+
+      setCharacters([]);
+
+      navigate('/login');
+    }
   }, [access]);
 
+  //logOut function
   const logOut = () => {
     setAccess(false);
     navigate('/login');
@@ -114,17 +140,17 @@ export default function App() {
   else //normal rendering (after access)
   {
     return(
-      <>
+      <div>
         <Nav onSearch={onSearch} logOut={logOut}/>
         <Routes>
           <Route path='/about' element={<About />}/>
-          <Route path='/home' element={<Home onSearch={onSearch} onClose={onClose} characters={characters}/>}/>
+          <Route path='/home' element={<Home onSearch={onSearch} onClose={onClose} characters={characters} handleDelete={handleDelete} pages={pages}/>}/>
           <Route path='/detail/:id' element={<Detail />}/>
           <Route path='/favorites' element={<Favorites />}/>
           <Route path='/catalogue' element={<Catalogue />}/>
           <Route path='/music' element={<Music/>}/>
         </Routes>  
-      </>
+      </div>
     );
   }
 }

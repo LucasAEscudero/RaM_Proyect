@@ -1,9 +1,9 @@
 .card{
-    border: 5px solid #252525;
+    border: 5px solid #086300;
     margin: 5px;
     position: relative;
-    background-color: #3d3d3d;
-    transition: 0.75s;
+    background-color: #27a700;
+    transition: 0.25s;
 }
 
 .card:hover{
@@ -29,7 +29,7 @@
 .card > img{
     position: relative;
     width: 200px;
-    border-bottom: 1px solid #000;
+    border-bottom: 3px solid #086300;
 }
 
 .fav{
@@ -54,6 +54,11 @@ h2{
     justify-content: space-around;
 }
 
-.close:hover{
-    box-shadow: 0 0 10px #e81224;
+.close:hover,
+.fav:hover{
+    text-shadow: 0 0 10px #e81224;
+}
+
+.dates > h2{
+    text-shadow: 0.5px 0.5px #000;
 }

@@ -15,11 +15,11 @@ export default function Nav({ logOut }) {
                 <div className={styles.navD}>
                     <div className={styles.links}>
                         <img className={styles.logo} src={logo} alt="logo" />
-                        <Link to='/about'><button className={styles.firstBorder}>About</button></Link>
                         <Link to='/home'><button>Home</button></Link>
                         <Link to='/favorites'><button>Favorites</button></Link>
                         <Link to='/catalogue'><button>Catalogue</button></Link>
                         <Link to='/music'><button>Music</button></Link>
+                        <Link to='/about'><button className={styles.firstBorder}>About</button></Link>
                     </div>
 
                     <div className={styles.search}>

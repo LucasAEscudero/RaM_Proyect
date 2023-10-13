@@ -1,11 +1,18 @@
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+
 import styles from './detail.module.css';
+// import Typewriter from 'typewriter-effect'
 
 export default function Detail(){
     const { id } = useParams(); //obtain character id
     const [character, setCharacter] = useState([]);
+    const words = {
+        status: character?.status?.toLowerCase(),
+        species: character?.species?.toLowerCase() + " ",
+        origin: " " + character?.origin?.name
+    };
 
     //import all info character
     useEffect(() => {
@@ -24,12 +31,41 @@ export default function Detail(){
         <div className={styles.cards}>
             <img src={character?.image} alt={character?.name} />
             <div className={styles.info}>
-                <h2>Name: {character?.name}</h2>
-                <h2>Id: {character?.id}</h2>
-                <h2>Status: {character?.status}</h2>
-                <h2>Specie: {character?.species}</h2>
-                <h2>Gender: {character?.gender}</h2>
-                <h2>Origin: <a href={character?.origin?.url}>{character?.origin?.name}</a></h2>
+                <p>
+                    <span>
+                    {character.gender == "Male" && 'He '}
+                    {character.gender == "Female" && 'She '}
+                    {character.gender == "unknown" && 'It '}
+                    {character.gender == "Genderless" && 'It '}
+                    </span> is <span>{character.name}</span> and live in:  
+                    <span>
+                    {words.origin}
+                    </span>.
+                    <br />
+                    <span>
+                    {character.gender == "Male" && 'He '}
+                    {character.gender == "Female" && 'She '}
+                    {character.gender == "unknown" && 'It '} 
+                    {character.gender == "Genderless" && 'It '}
+                    </span> belongs to the <span>{words.species}</span>
+                    species and 
+                    <span>
+                    {character.gender == "Male" && ' his '}
+                    {character.gender == "Female" && ' her '}
+                    {character.gender == "unknown" && ' has not '}
+                    {character.gender == "Genderless" && ' has not '}
+                    </span>
+                    gender <span>{character.gender == "Male" && "is male"}
+                    {character.gender == "Female" && "is female"}</span>.
+                    <br />
+                    <span>
+                    {character.gender == "Male" && 'He '}
+                    {character.gender == "Female" && 'She '}
+                    {character.gender == "unknown" && 'It '}
+                    {character.gender == "Genderless" && 'It '}
+                    </span>
+                    is found to be: <span>{words.status}</span>.
+                </p>
             </div>
         </div>
     );

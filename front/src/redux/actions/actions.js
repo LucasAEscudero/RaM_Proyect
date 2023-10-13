@@ -9,12 +9,12 @@ export const addFav = (character) => {
             const { data } = await axios.post(`http://localhost:3001/rickandmorty/favorites`, character);
 
             return dispatch({
-                type: REMOVE_FAV,
+                type: ADD_FAV,
                 payload: data
             });
         }
         catch(error){
-            alert(error.message);
+            throw Error(error.message);
         }
     };
 };
@@ -31,7 +31,7 @@ export const removeFav = (id) => {
             });
         }
         catch(error){
-            alert(error.message);
+            throw Error(error.message);
         }
     };
 };
@@ -56,7 +56,7 @@ export const getAll = (pag) => {
     return async (dispatch) => {
         const { data } = await axios(`http://localhost:3001/rickandmorty/catalogue/?page=${pag}`);
         
-        return dispatch({ type: GETALL, payload: data});
+        if(data) return dispatch({ type: GETALL, payload: data});
     }
 }
 

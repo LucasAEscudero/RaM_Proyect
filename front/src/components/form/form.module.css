@@ -55,3 +55,9 @@
     background-color: #252525;
     box-shadow: 0 0 15px #086300;
 }
+
+.error{
+    color: rgb(201, 0, 0);
+    /* text-shadow: none; */
+    font-weight: 100;
+}
