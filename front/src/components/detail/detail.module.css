@@ -6,16 +6,15 @@
     box-shadow: 0 0 25px #27a700;
     height: 20em;
     width: 40em;
-    padding-left: 1.5em;
 }
 
-.cards > img{
+/* .cards > img{
     margin: 10px;
     margin-top: 2.3em;
     border-radius: 50%;
     height: 15em;
     border: 2px solid #086300;
-}
+} */
 
 .info{
     display: flex;
@@ -37,7 +36,11 @@
 }
 
 .info > p > span{
-    color: #646cff;
+    color: var(--color-status);
+}
+
+.img{
+    width: 25em;
 }
 
 /* .info > h2 > span{

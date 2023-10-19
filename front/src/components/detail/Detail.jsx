@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { ImageColorPicker } from 'react-image-color-picker';
 
 import styles from './detail.module.css';
 // import Typewriter from 'typewriter-effect'
@@ -13,6 +14,9 @@ export default function Detail(){
         species: character?.species?.toLowerCase() + " ",
         origin: " " + character?.origin?.name
     };
+    const [color, setColor] = useState({
+        "--color-status": "inherit"
+    }); 
 
     //import all info character
     useEffect(() => {
@@ -27,10 +31,23 @@ export default function Detail(){
         return setCharacter({});
     }, [id]);
 
+    const handleColorPick = (color) => {
+        setColor({ "--color-status": color });
+    };
+
     return(
         <div className={styles.cards}>
-            <img src={character?.image} alt={character?.name} />
-            <div className={styles.info}>
+            <div className={styles.img}>
+                <ImageColorPicker
+                    onColorPick={handleColorPick}
+                    imgSrc={character?.image}
+                    zoom={1}
+                    
+                />
+            </div>
+
+            {/*<img src={character?.image} alt={character?.name} />*/}
+            <div className={styles.info} style={color}>
                 <p>
                     <span>
                     {character.gender == "Male" && 'He '}

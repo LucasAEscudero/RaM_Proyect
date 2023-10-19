@@ -27,6 +27,7 @@ export default function App() {
   const [characters, setCharacters] = useState([]);
   const [search, setSearch] = useState("id");
   const [pages, setPages] = useState(1);
+  const [indicate, setIndicate] = useState("");
 
   //login-access
   const [access, setAccess] = useState(false);
@@ -38,6 +39,7 @@ export default function App() {
   //search function
   const onSearch = async (type) => {
     //send param with case
+    setIndicate(type.type);
     if(type.value === "") return null;
     
     //search by id case
@@ -144,7 +146,17 @@ export default function App() {
         <Nav onSearch={onSearch} logOut={logOut}/>
         <Routes>
           <Route path='/about' element={<About />}/>
-          <Route path='/home' element={<Home onSearch={onSearch} onClose={onClose} characters={characters} handleDelete={handleDelete} pages={pages}/>}/>
+          <Route path='/home' 
+          element={
+            <Home onSearch={onSearch} 
+              onClose={onClose} 
+              characters={characters} 
+              handleDelete={handleDelete}
+              pages={pages}
+              indicate={indicate}
+            />
+          }
+          />
           <Route path='/detail/:id' element={<Detail />}/>
           <Route path='/favorites' element={<Favorites />}/>
           <Route path='/catalogue' element={<Catalogue />}/>
