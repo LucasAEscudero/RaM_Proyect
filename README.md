@@ -1,23 +1,45 @@
-# Proyecto Integrador
 
-En este repositorio deberás desarrollar tu Proyecto Integrador. Durante el Módulo 2 trabajarás principalmente en la carpeta "front", luego en el Módulo 3 empezarás a utilizar la carpeta "back" (puedes dejarla así como está por el momento).
+# Rick and Morty Proyect
 
-En la carpeta "front" te encontrarás con un Proyecto inicializado con el Framework Vite. NO TE PREOCUPES, no debes cambiar ninguna configuración. Simplemente sigue las instrucciones de tu Instructor/a que te irá guiando y de las consignas de la Homework.
+The main function of the project is to render a web page that allows you to search for specific or random Rick and Morty characters using the Rick-And-Morty-API, view characteristics of each character, add them to your favourites and/or delete them, plus other extra functions such as displaying all characters and so on.
 
-Recuerda que para realizar las peticiones a la API externa de Rick & Morty, utilizaremos la siguiente URL como ejemplo:
 
-https://rym2-production.up.railway.app/api/character/10?key={tu-api-key}
+## Technologies used
 
-Donde tu API KEY está compuesta de la siguiente manera: `henrym-{tu-usuario-de-github}`
+ - HTML
+ - CSS
+ - JavaScript
+ - React
+ - Redux
+ - NodeJS
+ - Express
+ - PostgreSQL
+ - Jest (Backend test)
 
-Recuerda que tu usuario de Github debe ir en minúsculas, por ejemplo: `henrym-misuaurio`
 
-Aspectos a tener en cuenta:
+## Page Sections
 
-- Recuerda ir PUSHEANDO los avances de tu proyecto diariamente. No importa si avanzaste mucho, poco, o todavía tienes consignas por completar. Es importante que vayas actualizando el repositorio con tu trabajo.
+- Login:
 
-- Es VITAL que utilices tu API KEY personal, y no la compartas con tus compañeros/as. 
+![Login Screenshot](./assets/login.png)
 
-- Si alguna petición a la API te responde con un error, checkea bien que hayas escrito correctamente el endpoint y tu API KEY.
+- Home:
 
-Muchos éxitos en este Proyecto! 
+![Home Screenshot](./assets/login.png)
+
+- Favorites:
+
+![Favorites Screenshot](./assets/login.png)
+
+- Catalogue:
+
+![Catalogue Screenshot](./assets/login.png)
+
+- Music:
+
+![Music Screenshot](./assets/login.png)
+
+- About:
+
+![About Screenshot](./assets/about.png)
+
