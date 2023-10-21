@@ -19,27 +19,33 @@ The main function of the project is to render a web page that allows you to sear
 
 ## Page Sections
 
-- Login:
+### 1. Login:
 
-![Login Screenshot](./assets/login.png)
+![login screenshot](https://github.com/LucasAEscudero/RaM_Proyect/assets/129696611/5e916c1f-3a78-4ab6-a9ae-0ad7b12fa6fb)
 
-- Home:
+### 2. Home:
 
-![Home Screenshot](./assets/login.png)
+![home screenshot](https://github.com/LucasAEscudero/RaM_Proyect/assets/129696611/d482daf1-6b7b-4c51-bffe-a20694fc588e)
 
-- Favorites:
+### 3. Favorites:
 
-![Favorites Screenshot](./assets/login.png)
+![favorites screenshot](https://github.com/LucasAEscudero/RaM_Proyect/assets/129696611/99b9e88d-4576-4a3a-bd69-ad363b8bf86e)
 
-- Catalogue:
+### 4. Catalogue:
 
-![Catalogue Screenshot](./assets/login.png)
+![catalogue screenshot](https://github.com/LucasAEscudero/RaM_Proyect/assets/129696611/319fbca2-af3f-4b9b-9448-bbeaecdbf866)
 
-- Music:
+### 5. Music:
 
-![Music Screenshot](./assets/login.png)
+![music screenshot](https://github.com/LucasAEscudero/RaM_Proyect/assets/129696611/91b6a366-9896-498b-9b2a-39777db6db36)
 
-- About:
+### 6. About:
 
-![About Screenshot](./assets/about.png)
+![about screenshot](https://github.com/LucasAEscudero/RaM_Proyect/assets/129696611/a4e82aa8-3cf6-46b0-8bf4-ec11d7bbef58)
+
+
+
+
+
+
 
