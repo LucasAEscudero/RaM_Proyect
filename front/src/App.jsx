@@ -1,7 +1,6 @@
 //react
 import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 //import { removeFav} from './redux/actions/actions.js';
 
 //axios
@@ -101,12 +100,24 @@ export default function App() {
   }
 
   //login functions
-  const login = async ({ email, password }) => {
+  const inputUser = async ({ email, password }) => {
     try{ //obtain access
       const { data } = await axios(`http://localhost:3001/rickandmorty/login/?email=${email}&&password=${password}`);
-
-      setAccess(data.access);
+// console.log(data)
+      setAccess(data?.access);
       navigate('/home');
+    }
+    catch(error){
+      throw Error(error.message);
+    }
+  }
+
+  const registerUser = async ({email, password}) => {
+    try{
+      await axios.post(`http://localhost:3001/rickandmorty/register`, {
+        email: email, 
+        password: password
+      });
     }
     catch(error){
       throw Error(error.message);
@@ -116,7 +127,7 @@ export default function App() {
   //reset - access
   useEffect(() => {
     if(!access){
-      axios.delete('http://localhost:3001/rickandmorty/LogOutFav');
+      //axios.delete('http://localhost:3001/rickandmorty/LogOutFav');
 
       setCharacters([]);
 
@@ -134,7 +145,7 @@ export default function App() {
   if(!access){
     return(
       <Routes>
-        <Route path='/login' element={<Form props={login}/>}/>
+        <Route path='/login' element={<Form inputUser={inputUser} registerUser={registerUser}/>}/>
         <Route path='*' element={<Error />}/>
       </Routes>
     );

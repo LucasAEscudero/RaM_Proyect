@@ -1,5 +1,6 @@
 const express = require('express');
 const mainServer = require('./routes/index.js');
+const bodyParser = require("body-parser");
 
 const server = express();
 
@@ -18,6 +19,7 @@ server.use((req, res, next) => {
 });
 
 server.use(express.json());
+server.use(bodyParser.json());
 
 //me redirecciona a mi mainServer
 server.use('/rickandmorty', mainServer);

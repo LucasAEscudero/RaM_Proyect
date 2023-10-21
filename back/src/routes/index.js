@@ -18,7 +18,7 @@ const mainServer = Router();
 //login
 mainServer.get('/login', login);
 
-mainServer.post('/login', postUsers);
+mainServer.post('/register', postUsers);
 
 //searchId
 mainServer.get('/character/:id', getCharById);

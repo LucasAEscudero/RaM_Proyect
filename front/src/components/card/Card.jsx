@@ -21,14 +21,7 @@ export default function Card({id, name, status, gender, image, onClose}) {
          dispatch(removeFav(id));
       } else {
          setIsFav(true);
-         dispatch(addFav({ 
-            id: id,
-            name: name, 
-            status: status, 
-            gender: gender,
-            image: image, 
-            onClose: onClose 
-         }));
+         dispatch(addFav(id));
       }
    }
 

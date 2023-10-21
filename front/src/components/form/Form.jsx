@@ -11,7 +11,7 @@ import wallpaper from './resources/login.jpg';
 //styles
 import form from './form.module.css';
 
-export default function Form({ props }) {
+export default function Form({ inputUser, registerUser }) {
     //inputs state
     const [input, setInput] = useState({
         email: '',
@@ -19,6 +19,8 @@ export default function Form({ props }) {
     });
     //errors state
     const [errors, setErrors] = useState({});
+    const [register, setRegister] = useState(false);
+
     //dispatch access
 
     //inputs function
@@ -36,13 +38,39 @@ export default function Form({ props }) {
     //button function
     const handleSubmit = (event) => {
         event.preventDefault();
-        props(input);
+        inputUser(input);
     }
 
+    const handleRegister = () => {
+        setRegister(true);
+
+        setInput({
+            email: '',
+            password: ''
+        });
+        setErrors({});
+    }   
+
+    const handleDB = (event) => {
+        //conexion con back - carga de user
+        event.preventDefault();
+
+        registerUser(input);
+
+        setRegister(false);
+
+        setInput({
+            email: '',
+            password: ''
+        });
+        setErrors({});
+    }
+
+    
     return(
         <div className={form.form}>
             <img className={form.wallpaper} src={wallpaper} alt="wallpaper" />
-            <form className={form.login}>
+            <form className={form.login} onSubmit={handleDB}>
                 <img className={form.name} src={name} alt="Rick and Morty" />
                 <label htmlFor="email">Email: </label>
                 <input 
@@ -66,13 +94,32 @@ export default function Form({ props }) {
                 {errors.password !== '' && <p className={form.error}>{errors.password}</p>}
                 <hr style={{ borderStyle: "none"}} />
 
-                <button 
+                { register &&
+                    <button 
+                    type='submit' 
+                    disabled={!input.password || !input.email || errors.password || errors.email}
+                    onClick={handleDB}
+                    >
+                        Register
+                    </button>
+                }
+                
+                { !register &&
+                    <button 
                     type='submit' 
                     disabled={!input.password || !input.email || errors.password || errors.email}
                     onClick={handleSubmit}
-                >
-                 Submit
-                </button>
+                    >
+                        Submit
+                    </button>
+                }
+                {  !register &&
+                    <div className={form.register}>
+                        <p>First time?</p>
+                        <button onClick={handleRegister}>Register here.</button>
+                    </div>
+                }
+
             </form>
         </div>
     );

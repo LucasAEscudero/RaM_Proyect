@@ -3,14 +3,24 @@ import {ADD_FAV, REMOVE_FAV, FILTER, ORDER, GETALL, RESET} from './action-types'
 //import axios from 'axios'; en caso de que tengamos que traer toda la info de la api (function, recursion)
 
 //action creator (add)
-export const addFav = (character) => {
+export const addFav = (id) => {
     return async (dispatch) => {
         try{
-            const { data } = await axios.post(`http://localhost:3001/rickandmorty/favorites`, character);
+            const { data } = await axios(`http://localhost:3001/rickandmorty/character/${id}`);
+            console.log(data)
+            const characters = await axios.post(`http://localhost:3001/rickandmorty/fav`, {
+                id: data.id,
+                name: data.name, 
+                origin: data.origin.name, 
+                status: data.status, 
+                image: data.image, 
+                species: data.species, 
+                gender: data.gender
+            });
 
             return dispatch({
                 type: ADD_FAV,
-                payload: data
+                payload: characters.data
             });
         }
         catch(error){
@@ -23,7 +33,7 @@ export const addFav = (character) => {
 export const removeFav = (id) => {
     return async (dispatch) => {
         try{
-            const { data } = await axios.delete(`http://localhost:3001/rickandmorty/favorites/?id=${id}`);
+            const { data } = await axios.delete(`http://localhost:3001/rickandmorty/fav/${id}`);
 
             return dispatch({
                 type: REMOVE_FAV,

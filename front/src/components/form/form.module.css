@@ -14,7 +14,7 @@
     position: absolute;
     float: left;
     width: 500px;
-    margin-top: 7%;
+    margin-top: 4.5em;
     margin-left: 10px;
     padding: 15px;
     border: 1px solid #61ff33;  
@@ -60,4 +60,22 @@
     color: rgb(201, 0, 0);
     /* text-shadow: none; */
     font-weight: 100;
+}
+
+.register{
+    display: flex;
+    justify-content: center;
+}
+
+.register > button{
+    border: none;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    color: rgb(70, 70, 223);
+}
+
+.register > button:hover{
+    color: rgb(58, 58, 255);
+    text-shadow: 0 0 5px rgb(58, 58, 255);
 }
