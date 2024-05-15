@@ -39,10 +39,6 @@ The main function of the project is to render a web page that allows you to sear
 
 ![music screenshot](https://github.com/LucasAEscudero/RaM_Proyect/assets/129696611/91b6a366-9896-498b-9b2a-39777db6db36)
 
-### 6. About:
-
-![about screenshot](https://github.com/LucasAEscudero/RaM_Proyect/assets/129696611/a4e82aa8-3cf6-46b0-8bf4-ec11d7bbef58)
-
 
 
 
